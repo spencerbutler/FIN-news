@@ -147,7 +147,8 @@ class TestWeb(unittest.TestCase):
         response = self.client.get('/?category=A')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Test Market News Item', response.data)
-        self.assertIn(b'Category: A', response.data)
+        # Should show descriptive category name, not "Category A"
+        self.assertIn(b'\xf0\x9f\x93\x88 Market News', response.data)
 
         # Test filtering by category B (should not show the item)
         response = self.client.get('/?category=B')
@@ -330,7 +331,7 @@ class TestWeb(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Should contain the descriptive category name (Market News with emoji)
-        self.assertIn('📈 Market News'.encode('utf-8'), response.data)
+        self.assertIn(b'\xf0\x9f\x93\x88 Market News', response.data)
 
         # Should not contain the old format
         self.assertNotIn(b'Category A', response.data)

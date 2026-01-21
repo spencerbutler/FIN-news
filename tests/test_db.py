@@ -54,6 +54,7 @@ class TestDatabase(unittest.TestCase):
     def test_maintenance_state_operations(self):
         """Test maintenance state get/set operations."""
         conn = sqlite3.connect(db.DB_PATH, check_same_thread=False, timeout=30.0)
+        conn.row_factory = sqlite3.Row
 
         try:
             # Test setting and getting state
@@ -71,6 +72,7 @@ class TestDatabase(unittest.TestCase):
     def test_maybe_run_daily_cleanup(self):
         """Test daily cleanup logic."""
         conn = sqlite3.connect(db.DB_PATH, check_same_thread=False, timeout=30.0)
+        conn.row_factory = sqlite3.Row
 
         try:
             # First call should run cleanup (no last_cleanup set)
@@ -89,6 +91,7 @@ class TestDatabase(unittest.TestCase):
         mock_retention.return_value = 0  # Delete everything immediately
 
         conn = sqlite3.connect(db.DB_PATH, check_same_thread=False, timeout=30.0)
+        conn.row_factory = sqlite3.Row
 
         try:
             # Add a test item
@@ -146,6 +149,7 @@ class TestDatabase(unittest.TestCase):
     def test_upsert_item_and_annotations(self):
         """Test inserting and updating items with annotations."""
         conn = sqlite3.connect(db.DB_PATH, check_same_thread=False, timeout=30.0)
+        conn.row_factory = sqlite3.Row
 
         try:
             test_item = {

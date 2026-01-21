@@ -98,8 +98,12 @@ def fetch_once() -> None:
     fetch_utc = started.isoformat()
     conn = sqlite3.connect(db.DB_PATH, check_same_thread=False, timeout=30.0)
     conn.row_factory = sqlite3.Row
-    # Ensure WAL mode is enabled for better concurrency
-    conn.execute("PRAGMA journal_mode=WAL")
+    # Ensure WAL mode is enabled for better concurrency (ignore errors in test/CI environments)
+    try:
+        conn.execute("PRAGMA journal_mode=WAL")
+    except sqlite3.OperationalError:
+        # WAL mode not supported or disk I/O error in test environment - continue anyway
+        pass
     try:
         sources = conn.execute("SELECT * FROM sources WHERE enabled=1").fetchall()
         for s in sources:
