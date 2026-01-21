@@ -1,0 +1,14 @@
+{
+  "crypto": [
+    "\\bcrypto\\b",
+    "\\bbitcoin\\b",
+    "\\bethereum\\b"
+  ],
+  "startups": [
+    "\\bstartup(s)?\\b",
+    "\\bVC\\b"
+  ],
+  "custom_topic": [
+    "\\bcustom keyword\\b"
+  ]
+}

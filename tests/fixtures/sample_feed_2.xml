@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Test Market Analysis Feed</title>
+    <description>Market analysis and commentary</description>
+    <link>https://example.com/analysis</link>
+    <lastBuildDate>Mon, 20 Jan 2026 14:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>Why Inflation May Fall Faster Than Expected</title>
+      <link>https://example.com/inflation-analysis</link>
+      <guid>https://example.com/inflation-analysis</guid>
+      <pubDate>Mon, 20 Jan 2026 13:30:00 GMT</pubDate>
+      <description>An analysis of supply chain improvements and their potential impact on CPI readings.</description>
+    </item>
+
+    <item>
+      <title>Corporate Bonds See Increased Demand</title>
+      <link>https://example.com/bonds-demand</link>
+      <guid>https://example.com/bonds-demand</guid>
+      <pubDate>Mon, 20 Jan 2026 12:30:00 GMT</pubDate>
+      <description>Fixed income investors are rotating back into credit amid improving economic outlook.</description>
+    </item>
+
+    <item>
+      <title>Euro Weakens Against Dollar</title>
+      <link>https://example.com/euro-weakens</link>
+      <guid>https://example.com/euro-weakens</guid>
+      <pubDate>Mon, 20 Jan 2026 11:30:00 GMT</pubDate>
+      <description>EURUSD falls below 1.08 as ECB policy divergence becomes more apparent.</description>
+    </item>
+  </channel>
+</rss>

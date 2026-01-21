@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Crypto News Feed</title>
+    <description>Cryptocurrency and blockchain news</description>
+    <link>https://crypto.example.com</link>
+    <lastBuildDate>Mon, 20 Jan 2026 14:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>Bitcoin Surges to New All-Time High Above $100,000</title>
+      <link>https://crypto.example.com/bitcoin-ath</link>
+      <guid>https://crypto.example.com/bitcoin-ath</guid>
+      <pubDate>Mon, 20 Jan 2026 13:00:00 GMT</pubDate>
+      <description>BTC reaches unprecedented levels driven by institutional adoption and ETF inflows.</description>
+    </item>
+
+    <item>
+      <title>Ethereum Developers Propose Major Network Upgrade</title>
+      <link>https://crypto.example.com/eth-upgrade</link>
+      <guid>https://crypto.example.com/eth-upgrade</guid>
+      <pubDate>Mon, 20 Jan 2026 12:00:00 GMT</pubDate>
+      <description>ETH developers announce plans for significant protocol improvements and scalability enhancements.</description>
+    </item>
+
+    <item>
+      <title>NFT Market Shows Signs of Recovery</title>
+      <link>https://crypto.example.com/nft-recovery</link>
+      <guid>https://crypto.example.com/nft-recovery</guid>
+      <pubDate>Mon, 20 Jan 2026 11:00:00 GMT</pubDate>
+      <description>Trading volumes in digital collectibles increase as market sentiment improves.</description>
+    </item>
+
+    <item>
+      <title>Blockchain Startup Raises $50M Series A</title>
+      <link>https://crypto.example.com/blockchain-startup</link>
+      <guid>https://crypto.example.com/blockchain-startup</guid>
+      <pubDate>Mon, 20 Jan 2026 10:00:00 GMT</pubDate>
+      <description>Promising Web3 infrastructure company secures significant venture capital funding.</description>
+    </item>
+  </channel>
+</rss>

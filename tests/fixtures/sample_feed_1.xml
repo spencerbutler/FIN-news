@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Test Financial News Feed</title>
+    <description>Sample RSS feed for testing</description>
+    <link>https://example.com</link>
+    <lastBuildDate>Mon, 20 Jan 2026 14:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>Fed Signals Potential Rate Cuts in 2026</title>
+      <link>https://example.com/fed-rate-cuts</link>
+      <guid>https://example.com/fed-rate-cuts</guid>
+      <pubDate>Mon, 20 Jan 2026 13:00:00 GMT</pubDate>
+      <description>Federal Reserve officials indicated they may consider interest rate reductions later this year if inflation continues to moderate.</description>
+    </item>
+
+    <item>
+      <title>Stocks Rally on Strong Earnings Reports</title>
+      <link>https://example.com/stocks-rally</link>
+      <guid>https://example.com/stocks-rally</guid>
+      <pubDate>Mon, 20 Jan 2026 12:00:00 GMT</pubDate>
+      <description>Major tech companies reported better-than-expected quarterly results, driving equities higher.</description>
+    </item>
+
+    <item>
+      <title>Oil Prices Surge Amid Middle East Tensions</title>
+      <link>https://example.com/oil-surge</link>
+      <guid>https://example.com/oil-surge</guid>
+      <pubDate>Mon, 20 Jan 2026 11:00:00 GMT</pubDate>
+      <description>Crude oil futures jumped 5% following reports of increased geopolitical risks in the Middle East.</description>
+    </item>
+
+    <item>
+      <title>European Central Bank Holds Rates Steady</title>
+      <link>https://example.com/ecb-rates</link>
+      <guid>https://example.com/ecb-rates</guid>
+      <pubDate>Mon, 20 Jan 2026 10:00:00 GMT</pubDate>
+      <description>The ECB maintained its key interest rates unchanged at its latest policy meeting.</description>
+    </item>
+
+    <item>
+      <title>China's Economy Shows Signs of Recovery</title>
+      <link>https://example.com/china-economy</link>
+      <guid>https://example.com/china-economy</guid>
+      <pubDate>Mon, 20 Jan 2026 09:00:00 GMT</pubDate>
+      <description>Latest data suggests China's economic growth may be accelerating in Q1.</description>
+    </item>
+  </channel>
+</rss>
