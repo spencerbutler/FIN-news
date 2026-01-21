@@ -1,0 +1,9 @@
+{
+  "crypto_assets": [
+    "\\bcrypto\\b",
+    "\\bbitcoin\\b"
+  ],
+  "custom_asset": [
+    "\\bcustom asset\\b"
+  ]
+}

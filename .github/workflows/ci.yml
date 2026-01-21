@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        python -m unittest discover tests/ -v
+
+    - name: Check test coverage
+      run: |
+        # Basic coverage check - count test methods
+        TEST_COUNT=$(python -m unittest discover tests/ -v 2>&1 | grep -c "^test_")
+        echo "Found $TEST_COUNT test methods"
+        if [ "$TEST_COUNT" -lt 10 ]; then
+          echo "Warning: Low test coverage ($TEST_COUNT tests)"
+          exit 1
+        fi
