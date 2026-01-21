@@ -124,8 +124,11 @@ class TestRulesConfig(unittest.TestCase):
         self.assertIn("another_valid", result)
         self.assertNotIn("invalid_topic", result)
 
-    def test_create_example_configs(self):
+    @patch('src.rules_config.get_config_dir')
+    def test_create_example_configs(self, mock_get_dir):
         """Test creating example configuration files."""
+        mock_get_dir.return_value = self.config_dir
+
         rules_config.create_example_configs()
 
         # Check that example files were created
