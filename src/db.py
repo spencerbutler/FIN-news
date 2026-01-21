@@ -131,7 +131,7 @@ def init_db(sources: list[Dict[str, Any]]) -> None:
 
 def upsert_item_and_annotations(conn: sqlite3.Connection, item: Dict[str, Any]) -> None:
     conn.execute(
-        """INSERT OR IGNORE INTO items(item_id,source_id,published_at,fetched_at,title,url,guid,summary,raw_json)
+        """INSERT OR REPLACE INTO items(item_id,source_id,published_at,fetched_at,title,url,guid,summary,raw_json)
            VALUES(?,?,?,?,?,?,?,?,?)""",
         (
             item["item_id"],
@@ -159,7 +159,12 @@ def upsert_item_and_annotations(conn: sqlite3.Connection, item: Dict[str, Any]) 
         ),
     )
     # tags (topics, asset classes, geo tags)
+    # First ensure tags exist in tags table
     for tag in item["topics"]:
+        conn.execute(
+            "INSERT OR IGNORE INTO tags(tag, tag_type, description) VALUES(?,?,?)",
+            (tag, "topic", f"Manual topic tag: {tag}"),
+        )
         conn.execute(
             """INSERT OR IGNORE INTO item_tags(item_id,tag,confidence,tagger)
                VALUES(?,?,?,?)""",
@@ -167,11 +172,19 @@ def upsert_item_and_annotations(conn: sqlite3.Connection, item: Dict[str, Any]) 
         )
     for tag in item.get("asset_classes", []):
         conn.execute(
+            "INSERT OR IGNORE INTO tags(tag, tag_type, description) VALUES(?,?,?)",
+            (tag, "asset_class", f"Manual asset class tag: {tag}"),
+        )
+        conn.execute(
             """INSERT OR IGNORE INTO item_tags(item_id,tag,confidence,tagger)
                VALUES(?,?,?,?)""",
             (item["item_id"], tag, 1.0, "rules_v1"),
         )
     for tag in item.get("geo_tags", []):
+        conn.execute(
+            "INSERT OR IGNORE INTO tags(tag, tag_type, description) VALUES(?,?,?)",
+            (tag, "geo", f"Manual geo tag: {tag}"),
+        )
         conn.execute(
             """INSERT OR IGNORE INTO item_tags(item_id,tag,confidence,tagger)
                VALUES(?,?,?,?)""",
