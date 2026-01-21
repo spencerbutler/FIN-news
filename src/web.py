@@ -9,7 +9,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from flask import Flask, Response, g, redirect, render_template_string, request, url_for
 
-from . import db, ingest, utils
+from . import db, ingest, rules, utils
 
 TEMPLATE = """
 <!doctype html>
@@ -393,9 +393,11 @@ TEMPLATE = """
           </select>
           <select name="category" class="modern-select text-sm">
             <option value="">All categories</option>
-            {% for c in ["A","B","C","D","E"] %}
-              <option value="{{c}}" {% if c==category %}selected{% endif %}>Category {{c}}</option>
-            {% endfor %}
+            <option value="A" {% if "A"==category %}selected{% endif %}>📈 Market News</option>
+            <option value="B" {% if "B"==category %}selected{% endif %}>📰 Interpretive/Opinion</option>
+            <option value="C" {% if "C"==category %}selected{% endif %}>🏛️ Macro/Policy Anchors</option>
+            <option value="D" {% if "D"==category %}selected{% endif %}>💼 Practitioner Commentary</option>
+            <option value="E" {% if "E"==category %}selected{% endif %}>📊 Other</option>
           </select>
           <input name="topic" value="{{ topic or '' }}" placeholder="topic tag (e.g., rates)" class="modern-input text-sm w-56" />
           <button class="btn-primary text-sm font-medium" type="submit">
@@ -651,7 +653,11 @@ TEMPLATE = """
                   </div>
                   <div class="mt-2">
                     <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-[var(--bg-tertiary)] text-[var(--text-secondary)]">
-                      Category {{ it.category }}
+                      {% if it.category == "A" %}📈 Market News
+                      {% elif it.category == "B" %}📰 Interpretive/Opinion
+                      {% elif it.category == "C" %}🏛️ Macro/Policy Anchors
+                      {% elif it.category == "D" %}💼 Practitioner Commentary
+                      {% else %}📊 Other{% endif %}
                     </span>
                   </div>
                 </div>
