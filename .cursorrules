@@ -1,0 +1,83 @@
+# Cursor Project Rules: FIN-news RSS Dashboard
+# Workspace-wide development guidelines and best practices
+
+## Commit Standards
+- **ALL commits MUST include the model ID** in the commit message
+- Format: `type: description\n\nModel: model-id`
+- Example: `feat: Add user authentication\n\nModel: claude-3-5-sonnet-20241022`
+
+## Branch Management & Workflow
+- **All new tasks REQUIRE a new feature branch**
+- Branch naming: `feat/descriptive-name` or `fix/issue-description`
+- **A new task CANNOT begin until all previous PRs have:**
+  - Passed all tests in CI/CD
+  - Been reviewed and approved
+  - Merged into main branch
+- **Keep repository clean and well-organized:**
+  - One feature/fix per branch
+  - Rebase feature branches before merging
+  - Delete merged branches immediately
+  - No long-running branches
+
+## Code Quality Standards
+- **Python:** Follow PEP 8, use type hints, comprehensive docstrings
+- **Testing:** All new features require tests, maintain >90% coverage
+- **Database:** Use proper transactions, validate data integrity
+- **Error Handling:** Graceful degradation, informative error messages
+- **Security:** Input validation, SQL injection prevention, safe defaults
+
+## Architecture Guidelines
+- **Modular Design:** Keep `src/` modules focused and independent
+- **Configuration:** Use JSON config files for customizable rules
+- **Database:** SQLite with WAL mode, proper indexing, maintenance scripts
+- **Web Interface:** Flask-based, responsive design, accessibility compliant
+
+## Development Workflow
+1. **Planning:** Create feature branch from main
+2. **Implementation:** Write code with tests, ensure CI passes
+3. **Review:** Create PR, get approval, merge to main
+4. **Cleanup:** Delete merged branch, update documentation if needed
+
+## Testing Requirements
+- **Unit Tests:** All functions and methods
+- **Integration Tests:** End-to-end RSS pipeline
+- **Web Tests:** Flask routes and template rendering
+- **Database Tests:** CRUD operations, constraints, migrations
+- **CI/CD:** GitHub Actions with automated testing on every PR
+
+## File Organization
+- `src/`: Core application modules
+- `tests/`: Comprehensive test suite
+- `config/`: Configuration files (JSON)
+- `docs/`: Documentation and specifications
+- Root level: Entry points, requirements, setup files
+
+## Performance & Scalability
+- **Database:** Efficient queries, proper indexing, WAL mode
+- **Web:** Fast loading, progressive enhancement, mobile-first
+- **RSS Processing:** Batch operations, error recovery, rate limiting
+- **Memory:** Efficient data structures, avoid memory leaks
+
+## Documentation
+- **Code:** Comprehensive docstrings for all public APIs
+- **README:** Setup, usage, and contribution guidelines
+- **ROADMAP:** Feature planning and milestones
+- **SPEC:** Technical specifications and requirements
+
+## Deployment & Operations
+- **Dependencies:** Pinned versions in requirements.txt
+- **Environment:** Environment variables for configuration
+- **Monitoring:** Health checks, error logging, performance metrics
+- **Backup:** Database maintenance and recovery procedures
+
+## Security Considerations
+- **Input Validation:** All user inputs validated and sanitized
+- **SQL Injection:** Use parameterized queries exclusively
+- **Error Messages:** No sensitive information in error responses
+- **Dependencies:** Regular security updates and vulnerability scanning
+
+## Accessibility & UX
+- **Web Interface:** WCAG compliance, keyboard navigation, screen reader support
+- **Responsive Design:** Mobile-first approach, works on all devices
+- **Loading States:** Professional loading animations and feedback
+- **Error Handling:** User-friendly error messages and recovery options
