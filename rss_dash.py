@@ -18,7 +18,7 @@ from src import db, web
 # Configuration (edit here)
 # -----------------------------
 
-APP_TITLE = "RSS Narrative Dashboard (v0)"
+APP_TITLE = "Market Thesis News"
 
 # Fetch interval in seconds (v0: every 15 minutes)
 FETCH_INTERVAL_SECONDS = int(os.environ.get("RSS_DASH_FETCH_INTERVAL", str(15 * 60)))
